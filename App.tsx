@@ -1058,29 +1058,10 @@
       } // This closes your next logic layer
     } // This closes your next logic layer
   } // This closes your next logic layer
+                
 
-  frameCountRef.current++;
-}, [
-              createDamageText(boss.x + boss.width / 2, boss.y - 100, 'ROAR!', '#ff4e00');
-            }
-            for (let i = 0; i < count; i++) {
-              projectilesRef.current.push({
-                x: boss.x + boss.width / 3, // From head area
-                y: boss.y + 10,
-                width: 30,
-                height: 30,
-                vx: (dx / dist) * 12,
-                vy: (dy / dist) * 12 + (Math.random() - 0.5) * 4,
-                sourceId: boss.id,
-                              projType: 'fireball'
-            });
-          }
-        }
-      }
-    }
-  }
-
-  frameCountRef.current++;
+          
+    frameCountRef.current++;
 }, [
   gameState,
   spawnObstacle,
