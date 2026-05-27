@@ -1149,7 +1149,7 @@
     // Fade damage flash
     if (player.damageFlashAlpha > 0) {
       player.damageFlashAlpha = Math.max(0, player.damageFlashAlpha - 0.05);
-    }
+    
 
     frameCountRef.current++;
   }, 
