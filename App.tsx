@@ -133,7 +133,7 @@
       if (bul.x < -100 || bul.x > CANVAS_WIDTH + 100 || bul.y < -100 || bul.y > CANVAS_HEIGHT + 100) {
         playerBulletsRef.current.splice(bIdx, 1);
       }
-    }
+    
 
     // Logic for things behind player
     if (player.lockedTargetId !== null) {
