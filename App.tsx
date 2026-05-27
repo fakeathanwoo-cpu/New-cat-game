@@ -1152,7 +1152,7 @@
     
 
     frameCountRef.current++;
-  ⁠} 
+    },[
     gameState, 
     spawnObstacle, 
     spawnBoss, 
