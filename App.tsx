@@ -1038,8 +1038,29 @@
             }
           } else if (boss.type === 'LAVA_DINO') {
             // Rapid fire fireballs
-            const count = boss.phase === 3 ? 3 : (boss.phase === 2 ? 2 : 1);
-            if (frameCountRef.current % 120 === 0) {
+                      const count = boss.phase === 3 ? 3 : (boss.phase === 2 ? 2 : 1);
+          if (frameCountRef.current % 120 === 0) {
+            createDamageText(boss.x + boss.width / 2, boss.y - 100, 'ROAR!', '#ff4e00');
+          }
+          for (let i = 0; i < count; i++) {
+            projectilesRef.current.push({
+              x: boss.x + boss.width / 3,
+              y: boss.y + 10,
+              width: 30,
+              height: 30,
+              vx: (dx / dist) * 12,
+              vy: (dy / dist) * 12 + (Math.random() - 0.5) * 4,
+              sourceId: boss.id,
+              projType: 'fireball'
+            });
+          }
+        } // This closes your 'if (boss.type === 'BOSS')' or similar loop
+      } // This closes your next logic layer
+    } // This closes your next logic layer
+  } // This closes your next logic layer
+
+  frameCountRef.current++;
+}, [
               createDamageText(boss.x + boss.width / 2, boss.y - 100, 'ROAR!', '#ff4e00');
             }
             for (let i = 0; i < count; i++) {
