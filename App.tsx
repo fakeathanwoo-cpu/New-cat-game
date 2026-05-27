@@ -1051,26 +1051,33 @@
                 vx: (dx / dist) * 12,
                 vy: (dy / dist) * 12 + (Math.random() - 0.5) * 4,
                 sourceId: boss.id,
-                projType: 'fireball'
-              });
-            }
-          } else if (boss.type === 'KRAKEN') {
-      // Ink Blobs and Bubbles
-      const pType = Math.random() > 0.4 ? 'ink' : 'bubble';
-      const count = boss.phase === 3 ? 6 : (boss.phase === 2 ? 4 : 2);
-      for(let i=0; i<count; i++) {
-        projectilesRef.current.push({
-          x: boss.x,
-          y: boss.y + boss.height / 2,
-          width: pType === 'ink' ? 45 : 30,
-          height: pType === 'ink' ? 45 : 30,
-          vx: (dx / dist) * (8 + i),
-          vy: (dy / dist) * (8 + i) + (i - count/2) * 3,
-          sourceId: boss.id,
-          projType: pType
-        });
+                              projType: 'fireball'
+            });
+          }
+        }
       }
     }
+  }
+
+  frameCountRef.current++;
+}, [
+  gameState,
+  spawnObstacle,
+  spawnBoss,
+  createParticles,
+  createAmbientParticles,
+  createCollectEffect,
+  handlePlayerHit,
+  quizState,
+  CANVAS_WIDTH,
+  CANVAS_HEIGHT,
+  GROUND_Y,
+  selectedCharacterId,
+  upgradeLevels,
+  isMuted
+]);
+
+    
           
           // Attack cooldown decreases with phase
           const baseCooldown = boss.phase === 1 ? 120 : (boss.phase === 2 ? 80 : 50);
