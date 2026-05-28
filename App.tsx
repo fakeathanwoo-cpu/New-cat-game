@@ -1065,9 +1065,6 @@
           const baseCooldown = boss.phase === 1 ? 120 : (boss.phase === 2 ? 80 : 50);
           boss.attackTimer = baseCooldown - (100 - healthPercent) * 0.2;
         }
-      }
-    }
-  }
 
   player.damageFlashAlpha = Math.max(0, player.damageFlashAlpha - 0.05);
 }
