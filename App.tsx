@@ -1099,7 +1099,7 @@
     
 
   frameCountRef.current++;
-}
+
 }, [
 
   gameState,
