@@ -1062,7 +1062,14 @@
 
           
     frameCountRef.current++;
+    // 1. The very last line of your actual game logic
+    player.damageFlashAlpha = Math.max(0, player.damageFlashAlpha - 0.05);
+  } // 2. This closing bracket SHUTS the "if (player.damageFlashAlpha > 0)" room
+
+  // 3. This increments the frame, completely outside of all loops/ifs
+  frameCountRef.current++;
 }, [
+  // 4. The dependency array opens up perfectly clean!
   gameState,
   spawnObstacle,
   spawnBoss,
@@ -1078,6 +1085,7 @@
   upgradeLevels,
   isMuted
 ]);
+
 
     
           
