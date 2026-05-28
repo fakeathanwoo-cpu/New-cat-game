@@ -1157,34 +1157,30 @@
 
     // Fade damage flash
     if (player.damageFlashAlpha > 0) {
-      player.damageFlashAlpha = Math.max(0, player.damageFlashAlpha - 0.05);
-    
-          }
-        }
-      }
-    }
-  }
+          player.damageFlashAlpha = Math.max(0, player.damageFlashAlpha - 0.05);
+  } // Closes 'if (player.damageFlashAlpha > 0)'
+} // Closes the 'if' or 'for' loop above that
+} // Closes the next outer logic layer
+} // Closes the next outer logic layer
+} // Closes the final outer logic layer
 
-    frameCountRef.current++;
-    }, [
-    gameState, 
-    spawnObstacle, 
-    spawnBoss, 
-    createParticles, 
-    createAmbientParticles, 
-    createCollectEffect, 
-    handlePlayerHit,
-    // score, health, combo, currentWorld, etc all removed to prevent thrashing
-    quizState,
-    CANVAS_WIDTH,
-    CANVAS_HEIGHT,
-    GROUND_Y,
-    selectedCharacterId,
-    upgradeLevels,
-    isMuted
-    // weather, cameraZoom, timeScale, worldFlow removed as they are also mirrored now
-  ]);
-
+  frameCountRef.current++;
+}, [
+  gameState,
+  spawnObstacle,
+  spawnBoss,
+  createParticles,
+  createAmbientParticles,
+  createCollectEffect,
+  handlePlayerHit,
+  quizState,
+  CANVAS_WIDTH,
+  CANVAS_HEIGHT,
+  GROUND_Y,
+  selectedCharacterId,
+  upgradeLevels,
+  isMuted
+]);
   const draw = useCallback((ctx: CanvasRenderingContext2D) => {
     ctx.clearRect(0, 0, CANVAS_WIDTH, CANVAS_HEIGHT);
     
