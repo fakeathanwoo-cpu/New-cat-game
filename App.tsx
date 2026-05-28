@@ -1027,7 +1027,7 @@
                     x: boss.x,
                     y: boss.y + boss.height / 2,
                     width: 30,
-                    height: 30,
+                                        height: 30,
                     vx: (dx / dist) * 12,
                     vy: (dy / dist) * 12,
                     sourceId: boss.id,
@@ -1037,32 +1037,31 @@
               }
             }
           } else if (boss.type === 'LAVA_DINO') {
-                      // Rapid fire fireballs
-          const count = boss.phase === 3 ? 3 : (boss.phase === 2 ? 2 : 1);
-          if (frameCountRef.current % 120 === 0) {
-            createDamageText(boss.x + boss.width / 2, boss.y - 100, 'ROAR!', '#ff4e00');
-          }
-          for (let i = 0; i < count; i++) {
-            projectilesRef.current.push({
-              x: boss.x + boss.width / 3,
-              y: boss.y + 10,
-              width: 30,
-              height: 30,
-              vx: (dx / dist) * 12,
-              vy: (dy / dist) * 12 + (Math.random() - 0.5) * 4,
-              sourceId: boss.id,
-              projType: 'fireball'
-            });
-          }
+            // Rapid fire fireballs
+            const count = boss.phase === 3 ? 3 : (boss.phase === 2 ? 2 : 1);
+            if (frameCountRef.current % 120 === 0) {
+              createDamageText(boss.x + boss.width / 2, boss.y - 100, 'ROAR!', '#ff4e00');
+            }
+            for (let i = 0; i < count; i++) {
+              projectilesRef.current.push({
+                x: boss.x + boss.width / 3,
+                y: boss.y + 10,
+                width: 30,
+                height: 30,
+                vx: (dx / dist) * 12,
+                vy: (dy / dist) * 12 + (Math.random() - 0.5) * 4,
+                sourceId: boss.id,
+                projType: 'fireball'
+              });
+            }
+          } 
         } 
-      } 
-    } 
 
-                            // Attack cooldown decreases with phase
-          const baseCooldown = boss.phase === 1 ? 120 : (boss.phase === 2 ? 80 : 50);
-          boss.attackTimer = baseCooldown - (100 - healthPercent) * 0.2;
-        }
+        // Attack cooldown decreases with phase
+        const baseCooldown = boss.phase === 1 ? 120 : (boss.phase === 2 ? 80 : 50);
+        boss.attackTimer = baseCooldown - (100 - healthPercent) * 0.2;
       }
+    }
 
     // Collision with player
     if (
@@ -1096,11 +1095,11 @@
     });
 
     player.damageFlashAlpha = Math.max(0, player.damageFlashAlpha - 0.05);
-  
+  }
 
   frameCountRef.current++;
-
 }, [
+
 
   gameState,
   spawnObstacle,
