@@ -1037,8 +1037,8 @@
               }
             }
           } else if (boss.type === 'LAVA_DINO') {
-            // Rapid fire fireballs
-                      const count = boss.phase === 3 ? 3 : (boss.phase === 2 ? 2 : 1);
+                      // Rapid fire fireballs
+          const count = boss.phase === 3 ? 3 : (boss.phase === 2 ? 2 : 1);
           if (frameCountRef.current % 120 === 0) {
             createDamageText(boss.x + boss.width / 2, boss.y - 100, 'ROAR!', '#ff4e00');
           }
@@ -1054,18 +1054,18 @@
               projType: 'fireball'
             });
           }
-        } // This closes your 'if (boss.type === 'BOSS')' or similar loop
-      } // This closes your next logic layer
-    } // This closes your next logic layer
-  } // This closes your next logic layer
-                
+        } 
+      } 
+    } 
 
-          
-              // Attack cooldown decreases with phase
-          const baseCooldown = boss.phase === 1 ? 120 : (boss.phase === 2 ? 80 : 50);
-          boss.attackTimer = baseCooldown - (100 - healthPercent) * 0.2;
-        
+    // Attack cooldown decreases with phase
+    const baseCooldown = boss.phase === 1 ? 120 : (boss.phase === 2 ? 80 : 50);
+    boss.attackTimer = baseCooldown - (100 - healthPercent) * 0.2;
+  } 
+} 
 
+player.damageFlashAlpha = Math.max(0, player.damageFlashAlpha - 0.05);
+}
   player.damageFlashAlpha = Math.max(0, player.damageFlashAlpha - 0.05);
 }
 
