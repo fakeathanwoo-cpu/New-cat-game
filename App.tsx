@@ -1074,7 +1074,6 @@
       ) {
         handlePlayerHit('#ff0000', 30);
       }
-    }
 
     // Particles
     particlesRef.current.forEach((p, index) => {
