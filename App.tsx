@@ -1058,22 +1058,23 @@
       } 
     } 
 
-                        // Attack cooldown decreases with phase
+                        /          // Attack cooldown decreases with phase
           const baseCooldown = boss.phase === 1 ? 120 : (boss.phase === 2 ? 80 : 50);
           boss.attackTimer = baseCooldown - (100 - healthPercent) * 0.2;
         }
       }
+    }
 
-      // Collision with player
-      if (
-        player.protectionTimer <= 0 &&
-        player.x < boss.x + boss.width &&
-        player.x + player.width > boss.x &&
-        player.y < boss.y + boss.height &&
-        player.y + player.height > boss.y
-      ) {
-        handlePlayerHit('#ff0000', 30);
-      }
+    // Collision with player
+    if (
+      player.protectionTimer <= 0 &&
+      player.x < boss.x + boss.width &&
+      player.x + player.width > boss.x &&
+      player.y < boss.y + boss.height &&
+      player.y + player.height > boss.y
+    ) {
+      handlePlayerHit('#ff0000', 30);
+    }
 
     // Particles
     particlesRef.current.forEach((p, index) => {
@@ -1096,7 +1097,7 @@
     });
 
     player.damageFlashAlpha = Math.max(0, player.damageFlashAlpha - 0.05);
-    
+  }
 
   frameCountRef.current++;
 
