@@ -1065,7 +1065,7 @@
       }
 
     player.damageFlashAlpha = Math.max(0, player.damageFlashAlpha - 0.05);
-  }
+  
 
   frameCountRef.current++;
 }, [
