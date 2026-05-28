@@ -1063,7 +1063,6 @@
           boss.attackTimer = baseCooldown - (100 - healthPercent) * 0.2;
         }
       }
-    }
 
     // Collision with player
     if (
